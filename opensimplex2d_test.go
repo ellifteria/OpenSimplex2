@@ -1,4 +1,4 @@
-package opensimplex2
+package opensimplex2d
 
 import (
 	"math"

@@ -1,4 +1,4 @@
-module github.com/ellifteria/opensimplex2-go
+module github.com/ellifteria/opensimplex2d-go
 
 go 1.20
 

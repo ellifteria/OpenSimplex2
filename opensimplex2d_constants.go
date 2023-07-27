@@ -1,4 +1,4 @@
-package opensimplex2
+package opensimplex2d
 
 const (
 	StretchConstant2 float64 = -0.21132486540518708
