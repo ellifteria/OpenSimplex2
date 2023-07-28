@@ -144,10 +144,28 @@ func (n *noise) Noise2D(x, y float64) float64 {
 	return noisyValue
 }
 
+func (n *noise) NormalizedNoise2D(x, y float64) float64 {
+	noisy := n.Noise2D(x, y)
+
+	normalizedNoisy := (noisy + NormMinConstant2) / (2.0 * NormMinConstant2)
+
+	return clamp(normalizedNoisy, 0.0, 1.0)
+}
+
 func extrapolate2(perm []int16, xsb, ysb, dx, dy float64) float64 {
 	index := perm[(int32(perm[int32(xsb)&0xff])+int32(ysb))&0xff] & 0x0e
 	g1 := float64(Gradients2[index])
 	g2 := float64(Gradients2[index+1])
 
 	return g1*dx + g2*dy
+}
+
+func clamp(x, min, max float64) float64 {
+	if x > max {
+		return max
+	}
+	if x < min {
+		return min
+	}
+	return x
 }
