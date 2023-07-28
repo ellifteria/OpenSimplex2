@@ -4,6 +4,7 @@ import "math"
 
 type Noise interface {
 	Noise2D(x, y float64) float64
+	NormalizedNoise2D(x, y float64) float64
 }
 
 type noise struct {
